@@ -1,10 +1,19 @@
 import { Link } from 'react-router-dom'
+import logo from '../assets/logo.png' // adjust path if needed
 
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <h2>SunBaked Pastries</h2>
+      {/* Logo */}
+      <Link to="/" className="logo-container">
+        <img
+          src={logo}
+          alt="SunBaked Pastries logo"
+          className="logo"
+        />
+      </Link>
 
+      {/* Navigation Links */}
       <div className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>

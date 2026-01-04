@@ -1,12 +1,25 @@
+import heroImage from '../assets/pastry-hero.png' // adjust filename if needed
+
 export default function Home() {
   return (
-    <section>
-      <h1>Freshly Baked. Made with Love.</h1>
-      <p>Handcrafted pastries baked fresh for every occasion.</p>
+    <section className="home">
+      {/* Hero Image */}
+      <div className="hero-image">
+        <img
+          src={heroImage}
+          alt="Freshly baked pastries"
+        />
+      </div>
 
-      <h3>What Our Customers Say</h3>
-      <p>"Absolutely delicious!"</p>
-      <p>"Best pastries in town."</p>
+      {/* Content */}
+      <div className="home1">
+        <h1>Freshly Baked. Made with Christ&apos;s Love.</h1>
+        <p>Handcrafted pastries baked fresh for every occasion.</p>
+
+        <h3>Testimonials</h3>
+        <p>"Absolutely delicious!"</p>
+        <p>"Best pastries in town."</p>
+      </div>
     </section>
   )
 }

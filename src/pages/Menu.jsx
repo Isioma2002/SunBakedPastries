@@ -1,6 +1,6 @@
 export default function Menu() {
   return (
-    <section>
+    <section className="home1">
       <h1>Menu</h1>
       <ul>
         <li>Croissants — $4</li>
