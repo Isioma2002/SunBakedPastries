@@ -16,7 +16,7 @@ export default function Home() {
         <h1>Freshly Baked. Made with Christ&apos;s Love.</h1>
         <p>Handcrafted pastries baked fresh for every occasion.</p>
 
-        <h3>Testimonials</h3>
+        <h3><strong>Testimonials</strong></h3>
         <p>"Absolutely delicious!"</p>
         <p>"Best pastries in town."</p>
       </div>
