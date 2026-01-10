@@ -22,6 +22,17 @@ export default function Home() {
         <p>“The customer service was beautiful as well, fast, respectful & very kind”</p>
         <p>“I was genuinely amazed at how good it was, not too greasy, not too salty, just perfectly balanced”</p>
         <p>“Best meat pie I’ve had in a while!! Excellent customer service”</p>
+        <div className="review-link-container">
+          <a
+            href="https://share.google/WMmwBfF4xqwI8j2Rz"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontWeight: 'bold', textDecoration: 'none' }}
+          >
+            Leave a review!
+          </a>
+        </div>
+
       </div>
     </section>
   )

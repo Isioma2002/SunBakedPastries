@@ -69,7 +69,7 @@ html, body {
   margin: 0 0.4rem;
   font-weight: 500;
   display: inline-block;
-  transition: color 0.2s ease, transform 0.2s ease;;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 /* Hover state */
@@ -140,6 +140,7 @@ html, body {
 
 .home1{
   margin: 50px;
+  text-align: center;
 }
 
 h1 {
@@ -184,4 +185,17 @@ p {
 .separator {
   margin: 0 0.5rem; /* equal spacing around separator */
   font-size: 1rem; /* adjust size if needed */
+}
+
+.review-link-container a {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: black;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.review-link-container a:hover {
+  transform: scale(1.08);
+  color:  #3B2A26 /* sun-baked accent */
+
 }
