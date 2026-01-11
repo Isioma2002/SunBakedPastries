@@ -204,3 +204,40 @@ p {
   transform: scale(1.08);
   color: #3B2A26;
 }
+
+.about-wrapper {
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-image {
+  float: left;
+  width: 280px;
+  max-width: 40%;
+  margin: 0 1.5rem 1rem 0;
+  border-radius: 20px;
+}
+
+.catering-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.catering-list li {
+  margin: 0.4rem 0;
+}
+
+/* Clear float after wrapped section */
+.about-wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.about-text {
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
