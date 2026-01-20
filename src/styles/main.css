@@ -1,10 +1,12 @@
 html, body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Cormorant Garamond", serif;
   padding: 0;
   width: 100%;
+  font-weight: 400;
   overflow-x: hidden;
   background-color: #f5f5f5;
+  color: black;
 }
 
 .navbar {
@@ -35,6 +37,7 @@ html, body {
 }
 
 .nav-links a {
+  font-family: "Cormorant Garamond", serif;
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -43,13 +46,14 @@ html, body {
 }
 
 .footer {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
   align-items: center;
   margin-top: auto;
   background-color: #fff3e0; /* same as navbar */
   color: black; /* deep neutral from palette */
   text-align: center;
   padding: 1.5rem 1rem;
-  font-family: "Arial Nova", Arial, sans-serif;
   border-top: 1px solid rgba(0, 0, 0, 0.05); /* subtle separation */
 }
 
@@ -143,25 +147,41 @@ html, body {
   text-align: center;
 }
 
+@font-face {
+  font-family: "Fraunces";
+  src: url("../assets/fonts/Fraunces-VariableFont_SOFTWONKopszwght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 h1 {
-  font-family: "League Spartan", sans-serif;
-  font-weight: 600;
+  font-family: "Fraunces", serif;
+  font-weight: 480;
   letter-spacing: 1px;
-  color: #3B2A26;/* strong contrast on cream */
+  color: #3B2A26; /* strong contrast on cream */
 }
 
- h3 {
+h2 {
   font-size: 25px;
-  font-family: "League Spartan", sans-serif;
-  font-weight: 600;
+  font-family: "Fraunces", serif;
+  font-weight: 420;
   letter-spacing: 1px;
-  color: #3B2A26;/* strong contrast on cream */
+  color: #3B2A26; /* strong contrast on cream */
 }
 
-p {
-  font-family: "Arial Nova", Arial, sans-serif;
-  color: black /* readable on soft cream */
+h1, h2 {
+  letter-spacing: 0.5px;
 }
+
+p,
+.catering-list li,
+.about-text {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
 
 .footer-heading {
   font-size: 15px;
@@ -253,12 +273,14 @@ p {
 .speech-bubble {
   position: relative;
   background: #fff;
-  color: #3B2A26;;
+  color: #3B2A26;
   padding: 1rem 1.25rem;
   border-radius: 20px;
   max-width: 700px;
   margin: 0 auto;
-  font-family: "Arial Nova", Arial, sans-serif;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 400;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -271,4 +293,28 @@ p {
   border-width: 10px 10px 0;
   border-style: solid;
   border-color: #3B2A26 transparent transparent transparent;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../assets/fonts/CormorantGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../assets/fonts/CormorantGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../assets/fonts/CormorantGaramond-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }

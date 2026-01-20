@@ -1,4 +1,4 @@
-import aboutImage from '../assets/pastry-hero.png' // replace with your actual image
+import aboutImage from '../assets/sisters.jpg' // replace with your actual image
 
 export default function About() {
   return (
@@ -57,7 +57,7 @@ export default function About() {
       {/* Catering section */}
       {/* Catering section */}
 <div className="about-text">
-  <h3>Catering</h3>
+  <h2>Catering</h2>
 
   <p>
     At <strong>SunBaked Pastries</strong>, one of our greatest joys is seeing people come
