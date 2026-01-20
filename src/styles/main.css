@@ -53,7 +53,7 @@ html, body {
   background-color: #fff3e0; /* same as navbar */
   color: black; /* deep neutral from palette */
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.05); /* subtle separation */
 }
 
@@ -115,7 +115,7 @@ html, body {
   padding: 50px;
   max-width: 2000px;
   margin: 0 auto;
-  height: 600px; /* 👈 control the visible height */
+  height: 650px; /* 👈 control the visible height */
 }
 
 .hero-image img {
