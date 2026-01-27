@@ -92,7 +92,7 @@ const productsData = [
 ];
 
 export default function Menu() {
-  // ✅ Everything starts at minimum valid quantity (6)
+  // ✅ Start all quantities at minimum tier (6)
   const [quantities, setQuantities] = useState(
     productsData.reduce((acc, product) => {
       acc[product.id] = 6;
@@ -109,7 +109,7 @@ export default function Menu() {
 
   const decreaseQty = (id) => {
     setQuantities((prev) => {
-      if (prev[id] <= 6) return prev;
+      if (prev[id] <= 6) return prev; // do not go below 6
       return {
         ...prev,
         [id]: prev[id] - 1,
@@ -117,26 +117,25 @@ export default function Menu() {
     });
   };
 
-  // ✅ Progressive (marginal) pricing
-  const getProgressivePrice = (product, quantity) => {
-    let remaining = quantity;
-    let total = 0;
-
-    // Sort tiers smallest → largest
+  const getUnitPrice = (product, qty) => {
+    // sort tiers ascending
     const tiers = [...product.tiers].sort((a, b) => a.qty - b.qty);
 
+    // find applicable tier for qty
     for (let i = tiers.length - 1; i >= 0; i--) {
-      const tierQty = tiers[i].qty;
-      const unitPrice = tiers[i].price / tierQty;
-
-      if (remaining >= tierQty) {
-        const unitsAtThisTier = remaining - tierQty + 1;
-        total += unitsAtThisTier * unitPrice;
-        remaining -= unitsAtThisTier;
+      if (qty >= tiers[i].qty) {
+        return tiers[i].price / tiers[i].qty;
       }
     }
 
-    return Math.round(total);
+    // if somehow below smallest tier (shouldn't happen), use first tier unit price
+    return tiers[0].price / tiers[0].qty;
+  };
+
+  const getPrice = (product, qty) => {
+    const unitPrice = getUnitPrice(product, qty);
+    const total = qty * unitPrice;
+    return Math.round(total * 100) / 100; // round to 2 decimals
   };
 
   return (
@@ -146,7 +145,7 @@ export default function Menu() {
       <div className="menu-grid">
         {productsData.map((product) => {
           const quantity = quantities[product.id];
-          const price = getProgressivePrice(product, quantity);
+          const price = getPrice(product, quantity);
 
           return (
             <div className="menu-card" key={product.id}>
