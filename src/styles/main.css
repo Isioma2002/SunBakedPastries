@@ -407,3 +407,14 @@ p,
   object-fit: cover;
   border-radius: 20px;
 }
+
+.gallery-grid img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.5);
+  box-shadow: 0 8px 20px #3B2A26;
+}
+
