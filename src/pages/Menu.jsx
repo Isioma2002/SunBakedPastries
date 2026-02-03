@@ -42,7 +42,7 @@ const productsData = [
     id: 4,
     name: "Mini Cheesecake",
     description:
-      "Mini cheesecakes with a rich creamy filling on a buttery crust.",
+      "Mini cheesecakes with a rich creamy filling on a buttery crust, available plain or strawberry compote",
     image: "/images/mini-cheesecake.jpg",
     tiers: [
       { qty: 6, price: 10 },
@@ -67,7 +67,7 @@ const productsData = [
     id: 6,
     name: "Buttermilk Cornbread",
     description:
-      "Sweet cornbread loaves with coconut flakes or honey butter.",
+      "Sweet cornbread loaves with your toppings of coconut flakes or honey butter.",
     image: "/images/cornbread.jpg",
     tiers: [
       { qty: 6, price: 22 },
