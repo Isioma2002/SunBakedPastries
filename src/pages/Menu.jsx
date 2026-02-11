@@ -92,50 +92,19 @@ const productsData = [
 ];
 
 export default function Menu() {
-  // ✅ Start all quantities at minimum tier (6)
-  const [quantities, setQuantities] = useState(
+  // Default each product to its first tier
+  const [selectedTier, setSelectedTier] = useState(
     productsData.reduce((acc, product) => {
-      acc[product.id] = 6;
+      acc[product.id] = product.tiers[0];
       return acc;
     }, {})
   );
 
-  const increaseQty = (id) => {
-    setQuantities((prev) => ({
+  const handleChange = (product, tierIndex) => {
+    setSelectedTier((prev) => ({
       ...prev,
-      [id]: prev[id] + 1,
+      [product.id]: product.tiers[tierIndex],
     }));
-  };
-
-  const decreaseQty = (id) => {
-    setQuantities((prev) => {
-      if (prev[id] <= 6) return prev; // do not go below 6
-      return {
-        ...prev,
-        [id]: prev[id] - 1,
-      };
-    });
-  };
-
-  const getUnitPrice = (product, qty) => {
-    // sort tiers ascending
-    const tiers = [...product.tiers].sort((a, b) => a.qty - b.qty);
-
-    // find applicable tier for qty
-    for (let i = tiers.length - 1; i >= 0; i--) {
-      if (qty >= tiers[i].qty) {
-        return tiers[i].price / tiers[i].qty;
-      }
-    }
-
-    // if somehow below smallest tier (shouldn't happen), use first tier unit price
-    return tiers[0].price / tiers[0].qty;
-  };
-
-  const getPrice = (product, qty) => {
-    const unitPrice = getUnitPrice(product, qty);
-    const total = qty * unitPrice;
-    return Math.round(total * 100) / 100; // round to 2 decimals
   };
 
   return (
@@ -144,8 +113,7 @@ export default function Menu() {
 
       <div className="menu-grid">
         {productsData.map((product) => {
-          const quantity = quantities[product.id];
-          const price = getPrice(product, quantity);
+          const tier = selectedTier[product.id];
 
           return (
             <div className="menu-card" key={product.id}>
@@ -159,13 +127,20 @@ export default function Menu() {
               </div>
 
               <div className="menu-footer">
-                <div className="price">${price}</div>
+                <div className="price">${tier.price}</div>
 
-                <div className="quantity-controls">
-                  <button onClick={() => decreaseQty(product.id)}>-</button>
-                  <span>{quantity}</span>
-                  <button onClick={() => increaseQty(product.id)}>+</button>
-                </div>
+                <select
+                  value={product.tiers.indexOf(tier)}
+                  onChange={(e) =>
+                    handleChange(product, e.target.value)
+                  }
+                >
+                  {product.tiers.map((t, index) => (
+                    <option key={index} value={index}>
+                      {t.qty} for ${t.price}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           );

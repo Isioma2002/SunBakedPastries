@@ -18,9 +18,8 @@ export default function Navbar() {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/menu">Menu</Link>
-        <Link to="/order">Order Now</Link>
         <Link to="/gallery">Gallery</Link>
-        <Link to="/collaborations">Collaborations</Link>
+        <Link to="/catering">Catering</Link>
       </div>
     </nav>
   )

@@ -26,8 +26,8 @@ html, body {
 }
 
 .logo {
-  max-width: 140px;
-  height: auto;
+  width: 225px;
+  height: 125px;
 }
 
 /* Nav links */
@@ -37,9 +37,10 @@ html, body {
 }
 
 .nav-links a {
+  font-size: 20px;
   font-family: "Cormorant Garamond", serif;
   text-decoration: none;
-  color: #333;
+  color: #3B2A26;
   font-weight: 500;
   display: inline-block; /* enables transform */
   transition: color 0.2s ease, transform 0.2s ease;
@@ -398,9 +399,13 @@ p,
 }
 
 .price {
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #3B2A26; /* brand brown */
+  letter-spacing: 0.5px;
 }
+
 
 .quantity-controls {
   display: flex;
@@ -441,5 +446,50 @@ p,
 .gallery-grid img:hover {
   transform: scale(1.5);
   box-shadow: 0 8px 20px #3B2A26;
+}
+
+.menu-footer select {
+  appearance: none; /* removes default browser styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: 16px;
+
+  background-color: #fff3e0; /* same as navbar/footer */
+  color: #3B2A26;
+
+  border: 1px solid #3B2A26;
+  border-radius: 12px;
+
+  padding: 8px 36px 8px 14px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.menu-footer select:hover {
+  background-color: #fce8d5;
+  transform: scale(1.05);
+}
+
+/* Focus */
+.menu-footer select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 42, 38, 0.3);
+}
+
+/* Custom dropdown arrow */
+.menu-footer {
+  position: relative;
+}
+
+.menu-footer select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%233B2A26' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
 }
 

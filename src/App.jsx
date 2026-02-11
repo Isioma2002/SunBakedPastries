@@ -5,9 +5,8 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Menu from './pages/Menu'
-import Order from './pages/Order'
 import Gallery from './pages/Gallery'
-import Collaborations from './pages/Collaborations'
+import Catering from './pages/Catering'
 
 export default function App() {
   return (
@@ -19,9 +18,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/order" element={<Order />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/collaborations" element={<Collaborations />} />
+          <Route path="/catering" element={<Catering />} />
         </Routes>
       </main>
 
