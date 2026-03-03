@@ -46,6 +46,31 @@ html, body {
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
+/* Make Food Safe button look exactly like navbar links */
+.nav-links .nav-link-button {
+  background: none;
+  border: none;
+  padding: 0;
+
+  font-size: 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+
+  color: #3B2A26;
+  text-decoration: none;
+
+  display: inline-block;
+  cursor: pointer;
+
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Match hover animation exactly */
+.nav-links .nav-link-button:hover {
+  color: #3B2A26;
+  transform: scale(1.08);
+}
+
 .footer {
   font-family: "Cormorant Garamond", serif;
   font-weight: 400;
@@ -77,10 +102,17 @@ html, body {
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
+
+
 /* Hover state */
 .footer a:hover {
   transform: scale(1.08);
   color:  #3B2A26 /* sun-baked accent */
+}
+
+.footer a svg {
+  font-size: 20px;   /* adjust size here */
+  vertical-align: middle;
 }
 
 /* Spacing */
@@ -90,6 +122,24 @@ html, body {
   width: 100%;
 }
 
+/* Icon container */
+.footer-icons {
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;       /* vertical alignment */
+  gap: 1rem;                 /* controls spacing between icons */
+  margin-top: 0.75rem;
+}
+
+/* Icon size */
+.footer-icons svg {
+  font-size: 20px;           /* adjust size here */
+}
+
+/* Remove default link margin (we don't need it anymore) */
+.footer a {
+  margin: 0;
+}
 .nav-links a:hover {
   color: #3B2A26;
   transform: scale(1.08);
@@ -201,36 +251,6 @@ p,
 /* Remove margin from the first link and separator to avoid extra space at start */
 .footer p a:first-child {
   margin-left: 0;
-}
-
-/* Make Food Safe button look like footer links */
-.footer-link-button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0 0.4rem;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: inherit;
-  font-weight: 500;
-  color: black;
-
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-/* Hover effect – same as footer links */
-.footer-link-button:hover {
-  transform: scale(1.08);
-  color: #3B2A26;
-}
-
-.separator {
-  margin: 0 0.5rem; /* equal spacing around separator */
-  font-size: 1rem; /* adjust size if needed */
 }
 
 .review-link-container {
