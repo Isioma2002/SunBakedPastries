@@ -384,10 +384,14 @@ p,
 
 .menu-image img {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
 }
 
+.menu-image {
+  width: 100%;
+  height: 200px;
+}
 .menu-content {
   padding: 16px;
 }

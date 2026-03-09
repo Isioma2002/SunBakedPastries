@@ -1,11 +1,16 @@
 import { useState } from "react";
 
+import blueberryMuffin from "../assets/MENU_blueberry muffin.jpg";
+import cinnamonRolls from "../assets/MENU_cinammon rolls.jpg";
+import cookies from "../assets/MENU_cookies.jpg";
+import meatPie from "../assets/MENU_meat pie.jpg";
+
 const productsData = [
   {
     id: 1,
     name: "Blueberry Muffins",
     description: "Classic blueberry muffins, with a crusted lemon crumble.",
-    image: "/images/blueberry-muffins.jpg",
+    image: blueberryMuffin,
     tiers: [
       { qty: 6, price: 12 },
       { qty: 12, price: 24 },
@@ -17,7 +22,7 @@ const productsData = [
     id: 2,
     name: "Espresso Chocolate Muffins",
     description: "Rich espresso-infused chocolate muffins.",
-    image: "/images/espresso-muffins.jpg",
+    image: blueberryMuffin, // replace if you add an espresso image later
     tiers: [
       { qty: 6, price: 12 },
       { qty: 12, price: 24 },
@@ -30,7 +35,7 @@ const productsData = [
     name: "Cinnamon Rolls",
     description:
       "A sweet pastry filled with cinnamon and brown sugar, finished with a drizzle of icing.",
-    image: "/images/cinnamon-roll.jpg",
+    image: cinnamonRolls,
     tiers: [
       { qty: 6, price: 20 },
       { qty: 12, price: 40 },
@@ -43,7 +48,7 @@ const productsData = [
     name: "Mini Cheesecake",
     description:
       "Mini cheesecakes with a rich creamy filling on a buttery crust, available plain or strawberry compote",
-    image: "/images/mini-cheesecake.jpg",
+    image: blueberryMuffin, // replace if cheesecake image exists
     tiers: [
       { qty: 6, price: 10 },
       { qty: 12, price: 20 },
@@ -55,7 +60,7 @@ const productsData = [
     id: 5,
     name: "Savory Meat Pies",
     description: "Golden pastry filled with seasoned ground beef and veggies.",
-    image: "/images/meat-pies.jpg",
+    image: meatPie,
     tiers: [
       { qty: 6, price: 12 },
       { qty: 12, price: 24 },
@@ -68,7 +73,7 @@ const productsData = [
     name: "Buttermilk Cornbread",
     description:
       "Sweet cornbread loaves with your toppings of coconut flakes or honey butter.",
-    image: "/images/cornbread.jpg",
+    image: blueberryMuffin, // replace if you add cornbread image
     tiers: [
       { qty: 6, price: 22 },
       { qty: 12, price: 35 },
@@ -81,7 +86,7 @@ const productsData = [
     name: "Classic Chocolate Cookies",
     description:
       "A timeless favorite, filled with your choice of milk or white chocolate.",
-    image: "/images/chocolate-cookies.jpg",
+    image: cookies,
     tiers: [
       { qty: 6, price: 11 },
       { qty: 12, price: 20 },
