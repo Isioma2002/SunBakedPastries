@@ -175,8 +175,6 @@ html, body {
   object-fit: cover; /* crops instead of stretching */
   display: block;
   border-radius: 50px;
-  border: 5px dashed #3B2A26;
-  outline: 3px dashed #3B2A26;
   outline-offset: 5px;
   padding: 5px;
 }

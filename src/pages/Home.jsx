@@ -1,4 +1,4 @@
-import heroImage from '../assets/PREF.png' // adjust filename if needed
+import heroImage from '../assets/test.jpg' // adjust filename if needed
 
 export default function Home() {
   return (
