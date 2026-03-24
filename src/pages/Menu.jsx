@@ -22,7 +22,7 @@ const productsData = [
     id: 2,
     name: "Espresso Chocolate Muffins",
     description: "Rich espresso-infused chocolate muffins.",
-    image: blueberryMuffin, // replace if you add an espresso image later
+    image: blueberryMuffin,
     tiers: [
       { qty: 6, price: 12 },
       { qty: 12, price: 24 },
@@ -48,7 +48,7 @@ const productsData = [
     name: "Mini Cheesecake",
     description:
       "Mini cheesecakes with a rich creamy filling on a buttery crust, available plain or strawberry compote",
-    image: blueberryMuffin, // replace if cheesecake image exists
+    image: blueberryMuffin,
     tiers: [
       { qty: 6, price: 10 },
       { qty: 12, price: 20 },
@@ -73,7 +73,7 @@ const productsData = [
     name: "Buttermilk Cornbread",
     description:
       "Sweet cornbread loaves with your toppings of coconut flakes or honey butter.",
-    image: blueberryMuffin, // replace if you add cornbread image
+    image: blueberryMuffin,
     tiers: [
       { qty: 6, price: 22 },
       { qty: 12, price: 35 },
@@ -104,6 +104,8 @@ export default function Menu() {
       return acc;
     }, {})
   );
+
+  // Removed cart state and related functions
 
   const handleChange = (product, tierIndex) => {
     setSelectedTier((prev) => ({
@@ -136,9 +138,7 @@ export default function Menu() {
 
                 <select
                   value={product.tiers.indexOf(tier)}
-                  onChange={(e) =>
-                    handleChange(product, e.target.value)
-                  }
+                  onChange={(e) => handleChange(product, e.target.value)}
                 >
                   {product.tiers.map((t, index) => (
                     <option key={index} value={index}>
