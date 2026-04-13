@@ -47,7 +47,7 @@ const productsData = [
     id: 4,
     name: "Mini Cheesecake",
     description:
-      "Mini cheesecakes with a rich creamy filling on a buttery crust, available plain or strawberry compote",
+      "Mini cheesecakes with a rich creamy filling on a buttery crust.",
     image: blueberryMuffin,
     tiers: [
       { qty: 6, price: 10 },
@@ -72,7 +72,7 @@ const productsData = [
     id: 6,
     name: "Buttermilk Cornbread",
     description:
-      "Sweet cornbread loaves with your toppings of coconut flakes or honey butter.",
+      "Sweet cornbread loaves with coconut flakes or honey butter.",
     image: blueberryMuffin,
     tiers: [
       { qty: 6, price: 22 },
@@ -85,7 +85,7 @@ const productsData = [
     id: 7,
     name: "Classic Chocolate Cookies",
     description:
-      "A timeless favorite, filled with your choice of milk or white chocolate.",
+      "A timeless favorite, filled with milk or white chocolate.",
     image: cookies,
     tiers: [
       { qty: 6, price: 11 },
@@ -97,7 +97,7 @@ const productsData = [
 ];
 
 export default function Menu() {
-  // Default each product to its first tier
+  // Selected tier per product
   const [selectedTier, setSelectedTier] = useState(
     productsData.reduce((acc, product) => {
       acc[product.id] = product.tiers[0];
@@ -105,13 +105,29 @@ export default function Menu() {
     }, {})
   );
 
-  // Removed cart state and related functions
+  // 🛒 Cart state
+  const [cart, setCart] = useState([]);
 
   const handleChange = (product, tierIndex) => {
     setSelectedTier((prev) => ({
       ...prev,
       [product.id]: product.tiers[tierIndex],
     }));
+  };
+
+  // 🛒 Add to cart function
+  const addToCart = (product) => {
+    const tier = selectedTier[product.id];
+
+    const item = {
+      id: product.id,
+      name: product.name,
+      qty: tier.qty,
+      price: tier.price,
+    };
+
+    setCart((prev) => [...prev, item]);
+    console.log("Cart:", [...cart, item]); // debug
   };
 
   return (
@@ -146,6 +162,13 @@ export default function Menu() {
                     </option>
                   ))}
                 </select>
+              </div>
+
+              {/* ✅ ADD TO CART BUTTON */}
+              <div className="menu-button">
+                <button onClick={() => addToCart(product)}>
+                  Add to Cart
+                </button>
               </div>
             </div>
           );

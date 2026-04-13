@@ -38,11 +38,22 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 
   background: #f5f5f5;
   width: 100%;
   box-sizing: border-box;
 }
+
+.nav-bottom {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center; 
+  position: relative;
+}
+
+
 
 /* Logo */
 .logo-container {
@@ -58,6 +69,8 @@ html, body {
 .nav-links {
   display: flex;
   gap: 1.25rem;
+  align-items: center;
+  margin: auto;
 }
 
 .nav-links a,
@@ -84,6 +97,15 @@ html, body {
 .nav-links .nav-link-button:hover {
   color: #3B2A26;
   transform: scale(1.08);
+}
+
+.cart-link {
+  cursor: pointer;
+  right: 0; 
+  display: flex;
+  align-items: center;
+  color: #3B2A26;
+  position: absolute;
 }
 
 
@@ -380,6 +402,26 @@ p,
 .menu-footer select:hover {
   background-color: white;
   transform: scale(1.05);
+}
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.menu-button button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #3B2A26;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu-button button:hover {
+  background-color: #555;
 }
 
 /* =======================================================
