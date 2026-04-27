@@ -96,7 +96,7 @@ const productsData = [
   },
 ];
 
-export default function Menu() {
+export default function Menu({ cart, setCart }) {
   // Selected tier per product
   const [selectedTier, setSelectedTier] = useState(
     productsData.reduce((acc, product) => {
@@ -106,7 +106,7 @@ export default function Menu() {
   );
 
   // 🛒 Cart state
-  const [cart, setCart] = useState([]);
+  
 
   const handleChange = (product, tierIndex) => {
     setSelectedTier((prev) => ({
@@ -154,7 +154,7 @@ export default function Menu() {
 
                 <select
                   value={product.tiers.indexOf(tier)}
-                  onChange={(e) => handleChange(product, e.target.value)}
+                  onChange={(e) => handleChange(product, Number(e.target.value))}
                 >
                   {product.tiers.map((t, index) => (
                     <option key={index} value={index}>
