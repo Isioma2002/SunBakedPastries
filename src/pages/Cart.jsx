@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Cart({ cart, setCart }) {
+
+  const navigate = useNavigate();
   // 🧮 Calculate total
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
@@ -47,6 +51,11 @@ export default function Cart({ cart, setCart }) {
           {/* 🧾 TOTAL */}
           <div className="cart-total">
             <h2>Total: ${total}</h2>
+          </div>
+
+           {/* 🛒 CHECKOUT BUTTON */}
+          <div className="checkout-container">
+            <button className="checkout-btn" onClick={() => navigate("/checkout")}>Checkout</button>
           </div>
         </>
       )}

@@ -10,6 +10,7 @@ import Menu from "./pages/Menu";
 import Gallery from "./pages/Gallery";
 import Catering from "./pages/Catering";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 export default function App() {
   // 🛒 Load cart from localStorage (runs only on first load)
@@ -44,6 +45,7 @@ export default function App() {
             path="/cart"
             element={<Cart cart={cart} setCart={setCart} />}
           />
+          <Route path="/checkout" element={<Checkout cart={cart} />} />
         </Routes>
       </main>
 

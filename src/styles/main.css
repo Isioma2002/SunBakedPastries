@@ -670,6 +670,135 @@ p,
 .remove-btn:hover {
   background: #ffbcbc;
 }
+
+/* =======================================================
+   CHECKOUT LINK
+======================================================= */
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.checkout-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  background-color: #3B2A26;;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.checkout-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.checkout-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* CARD STYLE */
+.checkout-card {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.checkout-card h2 {
+  margin-bottom: 1rem;
+}
+
+/* INPUTS */
+.checkout-card input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* BUTTON GROUPS */
+.method-options,
+.tip-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.method-options button,
+.tip-options button {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+button.active {
+  background:  #3B2A26;;
+  color: white;
+  border: none;
+}
+
+/* SUMMARY */
+.checkout-summary {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.checkout-summary p {
+  margin: 0.3rem 0;
+}
+
+.checkout-summary h2 {
+  margin: 1rem 0;
+}
+
+/* PLACE ORDER BUTTON */
+.place-order-btn {
+  padding: 0.9rem 2rem;
+  background:  #3B2A26;;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Confirmation styling */
+.confirmation {
+  text-align: center;
+}
+
+.payment-details {
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.payment-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.payment-details strong {
+  display: inline-block;
+  width: 90px;
+}
+
+.note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
 /* =======================================================
    REVIEW LINK
 ======================================================= */
