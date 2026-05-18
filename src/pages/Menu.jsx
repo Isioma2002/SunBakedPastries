@@ -4,7 +4,7 @@ import blueberryMuffin from "../assets/MENU_blueberry muffin.jpg";
 import cinnamonRolls from "../assets/MENU_cinammon rolls.jpg";
 import cookies from "../assets/MENU_cookies.jpg";
 import meatPie from "../assets/MENU_meat pie.jpg";
-
+import cs from "../assets/cs.jpg";
 const productsData = [
   {
     id: 1,
@@ -22,7 +22,7 @@ const productsData = [
     id: 2,
     name: "Espresso Chocolate Muffins",
     description: "Rich espresso-infused chocolate muffins.",
-    image: blueberryMuffin,
+    image: cs,
     tiers: [
       { qty: 6, price: 12 },
       { qty: 12, price: 24 },
@@ -48,7 +48,7 @@ const productsData = [
     name: "Mini Cheesecake",
     description:
       "Mini cheesecakes with a rich creamy filling on a buttery crust.",
-    image: blueberryMuffin,
+    image: cs,
     tiers: [
       { qty: 6, price: 10 },
       { qty: 12, price: 20 },
@@ -73,7 +73,7 @@ const productsData = [
     name: "Buttermilk Cornbread",
     description:
       "Sweet cornbread loaves with coconut flakes or honey butter.",
-    image: blueberryMuffin,
+    image: cs,
     tiers: [
       { qty: 6, price: 22 },
       { qty: 12, price: 35 },

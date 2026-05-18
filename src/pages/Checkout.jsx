@@ -5,32 +5,45 @@ export default function Checkout({ cart }) {
   const [address, setAddress] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState(""); // ✅ NEW
   const [tip, setTip] = useState(0);
   const [customTip, setCustomTip] = useState("");
+  const [orderDate, setOrderDate] = useState("");
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderId, setOrderId] = useState("");
 
   // 🧮 Base total
   const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
 
-  // 🎯 Tip calculation
-  // If "custom" is selected, use the exact dollar amount entered.
-  // Otherwise, calculate based on percentage.
+  // 🚚 Delivery charge
+  const deliveryFee = method === "delivery" ? 5 : 0;
+
+  // 📅 Minimum order date (3 days from today)
+  const minDate = new Date();
+  minDate.setDate(minDate.getDate() + 4);
+  const minDateString = minDate.toISOString().split("T")[0];
+
+  // 💰 Tip calculation
   const tipAmount =
     tip === "custom"
       ? Number(customTip || 0)
       : subtotal * (tip / 100);
 
-  const finalTotal = subtotal + tipAmount;
+  // 🧾 Final total
+  const finalTotal = subtotal + deliveryFee + tipAmount;
 
   const handlePlaceOrder = () => {
     // Basic validation
-    if (!name || !phone || (method === "delivery" && !address)) {
-      alert("Please fill all required fields");
+    if (!name || !phone || !email || (method === "delivery" && !address)) {
+      alert("Please fill all required fields including email");
       return;
     }
 
-    // 🔑 Generate Order ID (example: SBP-483921)
+    if (!orderDate) {
+      alert("Please select an order date");
+      return;
+    }
+
     const id =
       "SBP-" +
       Math.random().toString(36).substring(2, 8).toUpperCase();
@@ -49,21 +62,21 @@ export default function Checkout({ cart }) {
           <h2>Complete Your Payment</h2>
 
           <p>
-            Please send an <strong>Interac e-Transfer</strong> using the details
-            below:
+            Please send an <strong>Interac e-Transfer</strong> using the details below:
           </p>
 
           <div className="payment-details">
-            <p>
-              <strong>Email: </strong>sunbakedpastry@gmail.com
-            </p>
-            <p>
-              <strong>Amount: </strong>${finalTotal.toFixed(2)}
-            </p>
-            <p>
-              <strong>Order ID: </strong>
-              {orderId}
-            </p>
+            <p><strong>Email: </strong>sunbakedpastry@gmail.com</p>
+            <p><strong>Customer Email: </strong>{email}</p> {/* ✅ NEW */}
+            <p><strong>Amount: </strong>${finalTotal.toFixed(2)}</p>
+            <p><strong>Order ID: </strong>{orderId}</p>
+            <p><strong>Order Method: </strong>{method === "pickup" ? "Pickup" : "Delivery"}</p>
+
+            {method === "delivery" && (
+              <p><strong>Delivery Address: </strong>{address}</p>
+            )}
+
+            <p><strong>Order Date: </strong>{orderDate}</p>
           </div>
 
           <hr />
@@ -101,13 +114,35 @@ export default function Checkout({ cart }) {
         </div>
 
         {method === "delivery" && (
-          <input
-            type="text"
-            placeholder="Enter delivery address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
+          <>
+            <input
+              type="text"
+              placeholder="Enter delivery address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+
+            <p className="delivery-fee-note">
+              🚚 Delivery fee: $5.00 will be added to your total.
+            </p>
+          </>
         )}
+      </div>
+
+      {/* 📅 Order Date */}
+      <div className="checkout-card">
+        <h2>Select Order Date</h2>
+
+        <p className="order-date-note">
+          Please allow a minimum of 3 days for your order to be prepared.
+        </p>
+
+        <input
+          type="date"
+          value={orderDate}
+          min={minDateString}
+          onChange={(e) => setOrderDate(e.target.value)}
+        />
       </div>
 
       {/* 👤 Customer Info */}
@@ -126,6 +161,14 @@ export default function Checkout({ cart }) {
           placeholder="Phone Number"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
+        />
+
+        {/* ✅ NEW EMAIL FIELD */}
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
 
@@ -167,13 +210,16 @@ export default function Checkout({ cart }) {
       {/* 🧾 Summary */}
       <div className="checkout-summary">
         <p>Subtotal: ${subtotal.toFixed(2)}</p>
+
+        {method === "delivery" && (
+          <p>Delivery Fee: ${deliveryFee.toFixed(2)}</p>
+        )}
+
         <p>Tip: ${tipAmount.toFixed(2)}</p>
+
         <h2>Total: ${finalTotal.toFixed(2)}</h2>
 
-        <button
-          className="place-order-btn"
-          onClick={handlePlaceOrder}
-        >
+        <button className="place-order-btn" onClick={handlePlaceOrder}>
           Place Order
         </button>
       </div>

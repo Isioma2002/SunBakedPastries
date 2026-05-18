@@ -1,4 +1,4 @@
-import aboutImage from '../assets/sisters.jpg' // replace with your actual image
+import aboutImage from '../assets/sisters1.jpg' // replace with your actual image
 
 export default function About() {
   return (
@@ -53,52 +53,6 @@ export default function About() {
           heart. We look forward to baking for your next moment worth celebrating.
         </p>
       </div>
-
-      {/* Catering section */}
-      {/* Catering section */}
-<div className="about-text">
-  <h2>Catering</h2>
-
-  <p>
-    At <strong>SunBaked Pastries</strong>, one of our greatest joys is seeing people come
-    together to enjoy our pastries, which is why event catering is one of
-    our core services. We specialize in thoughtfully baked pastries for
-    events that bring people together.
-  </p>
-
-  <p>
-    From intimate gatherings to larger celebrations and workplace events,
-    our catering service is designed to be reliable, flexible, and
-    stress-free. We work closely with each client to create a menu that
-    suits the occasion, guest count, and preferences—whether you’re looking
-    for classic crowd favourites, custom selections, or a mix of sweet and
-    savoury options.
-  </p>
-
-  <p>
-    All catering orders are prepared using carefully sourced ingredients,
-    with close attention to freshness, presentation, and timing. Our focus
-    is simple: deliver pastries that feel homemade, look beautiful, and
-    taste memorable.
-  </p>
-
-  <p><strong>We cater for:</strong></p>
-  <ul className="catering-list">
-    <li>Birthday celebrations</li>
-    <li>Bridal and baby showers</li>
-    <li>Corporate and workplace events</li>
-    <li>Community and church gatherings</li>
-    <li>Social and private events</li>
-  </ul>
-
-  <p>
-    If you’re planning an event and want catering that feels personal and
-    thoughtfully executed, SunBaked Pastries would be honoured to bake for
-    you. <strong>Inquire about catering</strong> through our contact page to get started.
-  </p>
-  
-</div>
-
     </section>
   )
 }
