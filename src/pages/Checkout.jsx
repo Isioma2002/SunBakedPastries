@@ -10,59 +10,71 @@ export default function Checkout({ cart }) {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderId, setOrderId] = useState("");
 
-  // 🧮 base total
+  // 🧮 Base total
   const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
 
-  // 🎯 tip calculation
-  const tipPercent = tip === "custom" ? Number(customTip || 0) : tip;
-  const tipAmount = subtotal * (tipPercent / 100);
+  // 🎯 Tip calculation
+  // If "custom" is selected, use the exact dollar amount entered.
+  // Otherwise, calculate based on percentage.
+  const tipAmount =
+    tip === "custom"
+      ? Number(customTip || 0)
+      : subtotal * (tip / 100);
 
   const finalTotal = subtotal + tipAmount;
 
   const handlePlaceOrder = () => {
-  // basic validation
-  if (!name || !phone || (method === "delivery" && !address)) {
-    alert("Please fill all required fields");
-    return;
-  }
+    // Basic validation
+    if (!name || !phone || (method === "delivery" && !address)) {
+      alert("Please fill all required fields");
+      return;
+    }
 
-  // 🔑 Generate Order ID (example: SBP-483921)
-  const id =
-    "SBP-" +
-    Math.random().toString(36).substring(2, 8).toUpperCase();
+    // 🔑 Generate Order ID (example: SBP-483921)
+    const id =
+      "SBP-" +
+      Math.random().toString(36).substring(2, 8).toUpperCase();
 
-  setOrderId(id);
-  setOrderPlaced(true);
-};
+    setOrderId(id);
+    setOrderPlaced(true);
+  };
 
-if (orderPlaced) {
-  return (
-    <section className="checkout-page">
-      <h1>Order Confirmation</h1>
+  // ✅ Order Confirmation Screen
+  if (orderPlaced) {
+    return (
+      <section className="checkout-page">
+        <h1>Order Confirmation</h1>
 
-      <div className="checkout-card confirmation">
-        <h2>Complete Your Payment</h2>
+        <div className="checkout-card confirmation">
+          <h2>Complete Your Payment</h2>
 
-        <p>
-          Please send an <strong>Interac e-Transfer</strong> using the details
-          below:
-        </p>
+          <p>
+            Please send an <strong>Interac e-Transfer</strong> using the details
+            below:
+          </p>
 
-        <div className="payment-details">
-          <p><strong>Email: </strong>sunbakedpastry@gmail.com</p>
-          <p><strong>Amount: </strong>${finalTotal.toFixed(2)}</p>
-          <p><strong>Order ID: </strong>{orderId}</p>
+          <div className="payment-details">
+            <p>
+              <strong>Email: </strong>sunbakedpastry@gmail.com
+            </p>
+            <p>
+              <strong>Amount: </strong>${finalTotal.toFixed(2)}
+            </p>
+            <p>
+              <strong>Order ID: </strong>
+              {orderId}
+            </p>
+          </div>
+
+          <hr />
+
+          <p className="note">
+            ⚠️ Your order will only be processed once payment is received.
+          </p>
         </div>
-
-        <hr />
-
-        <p className="note">
-          ⚠️ Your order will only be processed once payment is received.
-        </p>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
 
   return (
     <section className="checkout-page">
@@ -71,6 +83,7 @@ if (orderPlaced) {
       {/* 🚚 Pickup or Delivery */}
       <div className="checkout-card">
         <h2>Order Method</h2>
+
         <div className="method-options">
           <button
             className={method === "pickup" ? "active" : ""}
@@ -135,14 +148,16 @@ if (orderPlaced) {
             className={tip === "custom" ? "active" : ""}
             onClick={() => setTip("custom")}
           >
-            Custom
+            Custom Amount
           </button>
         </div>
 
         {tip === "custom" && (
           <input
             type="number"
-            placeholder="Enter %"
+            min="0"
+            step="0.01"
+            placeholder="Enter tip amount ($)"
             value={customTip}
             onChange={(e) => setCustomTip(e.target.value)}
           />
@@ -155,7 +170,12 @@ if (orderPlaced) {
         <p>Tip: ${tipAmount.toFixed(2)}</p>
         <h2>Total: ${finalTotal.toFixed(2)}</h2>
 
-        <button className="place-order-btn" onClick={handlePlaceOrder}>Place Order</button>
+        <button
+          className="place-order-btn"
+          onClick={handlePlaceOrder}
+        >
+          Place Order
+        </button>
       </div>
     </section>
   );
