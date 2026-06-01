@@ -1,4 +1,4 @@
-import aboutImage from '../assets/sisters1.jpg' // replace with your actual image
+import aboutImage from "../assets/s1.jpg" // replace with your actual image
 
 export default function About() {
   return (
