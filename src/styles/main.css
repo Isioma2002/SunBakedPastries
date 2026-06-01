@@ -150,6 +150,52 @@ p,
   position: absolute;
 }
 
+/* Tablet & Mobile */
+@media (max-width: 768px) {
+  .nav-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-links a,
+  .nav-links .nav-link-button {
+    font-size: 16px;
+  }
+
+  .cart-link {
+    position: static;
+    align-self: center;
+  }
+
+  .logo {
+    width: 200px;
+    height: auto;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links a,
+  .nav-links .nav-link-button {
+    font-size: 14px;
+  }
+
+  .logo {
+    width: 180px;
+    height: auto;
+  }
+}
+
 /* =======================================================
    FOOTER
 ======================================================= */
