@@ -238,7 +238,6 @@ p,
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 0.75rem;
 }
 
 .footer-icons svg {
@@ -253,7 +252,7 @@ p,
   font-size: 15px;
   font-weight: 600;
   color: #3B2A26;
-  margin: auto 0;
+  margin: 0.05rem 0;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
