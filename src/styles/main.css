@@ -143,11 +143,9 @@ p,
 
 .cart-link {
   cursor: pointer;
-  right: 0;
   display: flex;
   align-items: center;
   color: #3B2A26;
-  position: static;
 }
 
 /* Tablet & Mobile */
