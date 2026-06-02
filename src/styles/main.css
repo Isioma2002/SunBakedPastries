@@ -115,20 +115,20 @@ p,
 /* Navigation links */
 .nav-links {
   display: flex;
-  gap: 0.75rem;
+  gap: 1.25rem;
   align-items: center;
   margin: auto;
 }
 
 .nav-links a,
 .nav-links .nav-link-button {
-  font-size: 15px;
   font-family: "Cormorant Garamond", serif;
   font-weight: 500;
   color: #3B2A26;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
+  font-size: 20px;
   background: none;
   border: none;
   padding: 0;
@@ -163,7 +163,7 @@ p,
 
   .nav-links a,
   .nav-links .nav-link-button {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .cart-link {
@@ -245,6 +245,23 @@ p,
   font-size: 20px;
 }
 
+.footer-foodsafe-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #3B2A26;
+  margin: auto 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-foodsafe-btn:hover {
+  transform: scale(1.05);
+  color: #5b4038;
+}
+
 /* =======================================================
    HOME PAGE
 ======================================================= */
@@ -281,6 +298,31 @@ p,
   outline-offset: 5px;
 }
 
+.review-link-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: #3B2A26;
+  border: 2px solid #3B2A26;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.review-btn:hover {
+  background: #3B2A26;
+  color: white;
+  transform: translateY(-2px);
+}
 /* =======================================================
    ABOUT PAGE
 ======================================================= */

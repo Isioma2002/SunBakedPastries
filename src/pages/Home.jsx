@@ -39,13 +39,12 @@ export default function Home() {
     “Best meat pie I’ve had in a while!! Excellent customer service”
   </div>
 </div>
-
         <div className="review-link-container">
           <a
             href="https://share.google/WMmwBfF4xqwI8j2Rz"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontWeight: 'bold', textDecoration: 'none' }}
+            className="review-btn"
           >
             Leave a review!
           </a>
