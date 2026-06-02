@@ -46,7 +46,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="review-btn"
           >
-            Leave a review!
+            Leave a Review!
           </a>
         </div>
 

@@ -132,7 +132,6 @@ export default function Menu({ cart, setCart }) {
 
   return (
     <section className="home1">
-      <h1>Menu</h1>
 
       <div className="menu-grid">
         {productsData.map((product) => {

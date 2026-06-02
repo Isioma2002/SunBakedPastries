@@ -16,8 +16,6 @@ export default function Gallery() {
 
   return (
     <section className="home1">
-      <h1>Gallery</h1>
-      <p>Photos of our baked goods and events.</p>
 
       <div className="gallery-grid">
         <img src={gallery1} alt="Baked good 1" onClick={() => setSelectedImage(gallery1)} />

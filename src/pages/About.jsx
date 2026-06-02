@@ -3,7 +3,6 @@ import aboutImage from "../assets/s1.jpg" // replace with your actual image
 export default function About() {
   return (
     <section className="home1">
-      <h1>About SunBaked Pastries</h1>
 
       {/* About section with wrapped image */}
       <div className="about-wrapper">
