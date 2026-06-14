@@ -161,15 +161,22 @@ export default function Checkout({ cart }) {
 
       {/* DATE */}
       <div className="checkout-card">
-        <h2>Order Date</h2>
-
-        <input
-          type="date"
-          min={minDateString}
-          value={orderDate}
-          onChange={(e) => setOrderDate(e.target.value)}
-        />
-      </div>
+        <h2>Pickup/Delivery Date</h2>
+        <p
+        style={{fontSize: "0.95rem",
+          marginBottom: "10px",
+          color: "#666",}}>
+            All orders require a minimum of{" "}
+            <strong>4 days</strong> notice for preparation.
+            The earliest available pickup or delivery date is{" "}
+            <strong>{minDateString}</strong>.
+            </p>
+            <input type="date"
+            min={minDateString}
+            value={orderDate}
+            onChange={(e) => setOrderDate(e.target.value)}
+            />
+            </div>
 
       {/* CUSTOMER */}
       <div className="checkout-card">

@@ -2,19 +2,12 @@ import { FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function Footer() {
   const downloadFoodSafeDocs = () => {
-    const files = [
-      "/pdf/AmandaFoodsafe.pdf",
-      "/pdf/IsiomaFoodsafe.pdf",
-    ];
-
-    files.forEach((file) => {
-      const link = document.createElement("a");
-      link.href = file;
-      link.download = "";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
+    const link = document.createElement("a");
+    link.href = "/pdf/FoodSafeCertificates.zip";
+    link.download = "FoodSafeCertificates.zip";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -26,7 +19,8 @@ export default function Footer() {
       <button
         onClick={downloadFoodSafeDocs}
         className="footer-foodsafe-btn"
-      > Certificates
+      >
+        Certificates
       </button>
 
       <p className="footer-icons">
@@ -39,11 +33,17 @@ export default function Footer() {
           <FaInstagram />
         </a>
 
-        <a href="mailto:sunbakedpastry@gmail.com" aria-label="Email">
+        <a
+          href="mailto:sunbakedpastry@gmail.com"
+          aria-label="Email"
+        >
           <FaEnvelope />
         </a>
 
-        <a href="tel:+4374213072" aria-label="Phone">
+        <a
+          href="tel:+14374213072"
+          aria-label="Phone"
+        >
           <FaPhone />
         </a>
       </p>

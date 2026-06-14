@@ -543,7 +543,7 @@ p,
 .gallery-grid img {
   width: 90%;
   max-width: 350px;
-  aspect-ratio: 3 / 4; /* portrait shape */
+  aspect-ratio: 3 / 4;
   height: auto;
   object-fit: cover;
   border-radius: 10px;
@@ -592,13 +592,27 @@ p,
   }
 }
 
-/* Responsive adjustments for lightbox images */
+/* MOBILE */
 @media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* One image per row */
+    margin: 20px;              /* Much smaller margins */
+    gap: 20px;
+  }
+
+  .gallery-grid img {
+    width: 100%;               /* Fill the available space */
+    max-width: 450px;
+  }
+
+  .gallery-grid img:hover {
+    transform: none;           /* Disable hover zoom on phones */
+  }
+
   .lightbox img {
-    width: 80%;
+    width: 90%;
   }
 }
-
 /* =======================================================
    PAGE LAYOUTS: CART, CHECKOUT, CONFIRMATION
 ======================================================= */
