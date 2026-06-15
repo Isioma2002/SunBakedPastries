@@ -23,41 +23,32 @@ export default function Checkout({ cart }) {
   minDate.setDate(minDate.getDate() + 4);
   const minDateString = minDate.toISOString().split("T")[0];
 
-  const tipAmount =
+  const tipAmountRaw =
     tip === "custom" ? Number(customTip || 0) : subtotal * (tip / 100);
+
+  const tipAmount = Math.max(0, tipAmountRaw);
 
   const finalTotal = subtotal + deliveryFee + tipAmount;
 
-  // 🚚 DELIVERY DISPLAY
   const deliveryDisplay =
     method === "delivery" ? `$${deliveryFee.toFixed(2)}` : "N/A";
 
-  // 🧾 CART TABLE (GROUPED)
+  // 🧾 CART TABLE
   const formatCartTable = () => {
-    const grouped = {};
-
-    cart.forEach((item) => {
-      if (!grouped[item.name]) {
-        grouped[item.name] = { ...item, qty: 1 };
-      } else {
-        grouped[item.name].qty += 1;
-      }
-    });
-
-    return Object.values(grouped)
+    return cart
       .map(
         (item) => `
           <tr>
             <td>${item.name}</td>
             <td align="center">${item.qty}</td>
-            <td align="right">$${(item.price * item.qty).toFixed(2)}</td>
+            <td align="right">$${item.price.toFixed(2)}</td>
           </tr>
         `
       )
       .join("");
   };
 
-  // 📩 SEND EMAILS
+  // 📩 EMAILS
   const sendEmails = (generatedId) => {
     const templateParams = {
       customer_name: name,
@@ -76,7 +67,6 @@ export default function Checkout({ cart }) {
       total: finalTotal.toFixed(2),
     };
 
-    // 📩 CUSTOMER EMAIL
     emailjs.send(
       "service_qt61hqs",
       "template_04c6i6b",
@@ -84,7 +74,6 @@ export default function Checkout({ cart }) {
       "5bCQqWfXy_THhxtPr"
     );
 
-    // 📩 BUSINESS EMAIL
     emailjs.send(
       "service_qt61hqs",
       "template_fzasu8a",
@@ -93,7 +82,6 @@ export default function Checkout({ cart }) {
     );
   };
 
-  // 🧾 PLACE ORDER
   const handlePlaceOrder = () => {
     if (!name || !phone || !email || (method === "delivery" && !address)) {
       alert("Please fill all required fields");
@@ -113,7 +101,6 @@ export default function Checkout({ cart }) {
     setOrderPlaced(true);
   };
 
-  // ✅ CONFIRMATION SCREEN
   if (orderPlaced) {
     return (
       <section className="checkout-page">
@@ -126,13 +113,19 @@ export default function Checkout({ cart }) {
             A confirmation email has been sent to <strong>{email}</strong>
           </p>
 
-          <p><strong>Order ID:</strong> {orderId}</p>
-          <p><strong>Total:</strong> ${finalTotal.toFixed(2)}</p>
+          <p>
+            <strong>Order ID:</strong> {orderId}
+          </p>
+
+          <p>
+            <strong>Total:</strong> ${finalTotal.toFixed(2)}
+          </p>
 
           <hr />
 
           <p>
-            Please send e-transfer to: <strong>sunbakedpastry@gmail.com</strong>
+            Please send an e-transfer to:{" "}
+            <strong>sunbakedpastry@gmail.com</strong>
           </p>
         </div>
       </section>
@@ -162,21 +155,19 @@ export default function Checkout({ cart }) {
       {/* DATE */}
       <div className="checkout-card">
         <h2>Pickup/Delivery Date</h2>
-        <p
-        style={{fontSize: "0.95rem",
-          marginBottom: "10px",
-          color: "#666",}}>
-            All orders require a minimum of{" "}
-            <strong>4 days</strong> notice for preparation.
-            The earliest available pickup or delivery date is{" "}
-            <strong>{minDateString}</strong>.
-            </p>
-            <input type="date"
-            min={minDateString}
-            value={orderDate}
-            onChange={(e) => setOrderDate(e.target.value)}
-            />
-            </div>
+
+        <p style={{ fontSize: "0.95rem", marginBottom: "10px", color: "#666" }}>
+          All orders require a minimum of <strong>4 days</strong> notice. The earliest date is{" "}
+          <strong>{minDateString}</strong>.
+        </p>
+
+        <input
+          type="date"
+          min={minDateString}
+          value={orderDate}
+          onChange={(e) => setOrderDate(e.target.value)}
+        />
+      </div>
 
       {/* CUSTOMER */}
       <div className="checkout-card">
@@ -187,44 +178,54 @@ export default function Checkout({ cart }) {
         <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
 
-      {/* TIP */}
+      {/* TIP SYSTEM */}
       <div className="checkout-card">
         <h2>Tip</h2>
 
+        {/* PRESET BUTTONS */}
         {[0, 10, 20, 30].map((p) => (
           <button key={p} onClick={() => setTip(p)}>
             {p}%
           </button>
         ))}
 
+        {/* CUSTOM TOGGLE */}
         <button onClick={() => setTip("custom")}>Custom</button>
 
+        {/* CUSTOM INPUT (manual only, no arrows, no scroll) */}
         {tip === "custom" && (
           <input
+            className="custom-tip-input"
             type="number"
-            placeholder="Custom tip ($)"
+            placeholder="Enter custom tip ($)"
             value={customTip}
-            onChange={(e) => setCustomTip(e.target.value)}
+            min="0"
+            step="0.01"
+            onWheel={(e) => e.target.blur()}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              setCustomTip(value < 0 ? "0" : e.target.value);
+            }}
           />
         )}
       </div>
 
       {/* SUMMARY */}
-<div className="checkout-summary">
-  <p>Subtotal: ${subtotal.toFixed(2)}</p>
+      <div className="checkout-summary">
+        <p>Subtotal: ${subtotal.toFixed(2)}</p>
 
-  {method === "delivery" && (
-    <p>Delivery: ${deliveryFee.toFixed(2)}</p>
-  )}
+        {method === "delivery" && (
+          <p>Delivery: ${deliveryFee.toFixed(2)}</p>
+        )}
 
-  <p>Tip: ${tipAmount.toFixed(2)}</p>
+        <p>Tip: ${tipAmount.toFixed(2)}</p>
 
-  <p>
-    <strong>Total: ${finalTotal.toFixed(2)}</strong>
-  </p>
+        <p>
+          <strong>Total: ${finalTotal.toFixed(2)}</strong>
+        </p>
 
-  <button onClick={handlePlaceOrder}>Place Order</button>
-</div>
+        <button onClick={handlePlaceOrder}>Place Order</button>
+      </div>
     </section>
   );
 }

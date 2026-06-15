@@ -955,6 +955,17 @@ p,
   font-style: italic;
 }
 
+/* Remove number input spinner arrows (Chrome, Edge, Safari) */
+.custom-tip-input::-webkit-outer-spin-button,
+.custom-tip-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input spinner arrows (Firefox) */
+.custom-tip-input[type="number"] {
+  -moz-appearance: textfield;
+}
 /* =======================================================
    RESPONSIVE
 ======================================================= */
