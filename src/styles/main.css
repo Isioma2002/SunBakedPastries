@@ -368,6 +368,23 @@ p,
   margin: 0.4rem 0;
 }
 
+.catering-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.catering-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* =======================================================
    TESTIMONIALS
 ======================================================= */

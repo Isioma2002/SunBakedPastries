@@ -1,111 +1,105 @@
+import c1 from "../assets/c1.jpg";
+import c2 from "../assets/c2.jpg";
+
 export default function Catering() {
-return ( <section className="home1">
+  return (
+    <section className="home1">
+      <div className="about-text">
+        <h1>Catering & Event Partnerships</h1>
 
-  <div className="about-text">
-    <p>
-      At <strong>SunBaked Pastries</strong>, we believe that great food has a
-      way of bringing people together. Whether it’s a family celebration, a
-      corporate gathering, a wedding reception, or a community event, our
-      goal is to create pastries that add warmth, comfort, and memorable
-      moments to every occasion. Catering is more than simply supplying
-      baked goods—it’s about helping hosts create an experience their guests
-      will remember long after the event has ended.
-    </p>
+        <p>
+          Whether you're hosting an office meeting, open house, wedding,
+          church gathering, birthday celebration, or community function,
+          SunBaked Pastries is here to help make your event memorable.
+        </p>
 
-    <p>
-      Our catering service is designed to be both reliable and flexible,
-      allowing us to accommodate events of varying sizes and styles. We work
-      closely with clients to understand the nature of their event, the
-      number of guests attending, and any preferences or special requests
-      they may have. From intimate gatherings to large-scale celebrations,
-      every order is approached with the same attention to detail and
-      commitment to quality.
-    </p>
+        <p>
+          We specialize in homemade sweet and savoury baked goods that bring
+          people together. From our signature savoury meat pies and SunBaked
+          Rolls to our customer-favourite blueberry crumble muffins, every
+          item is prepared with care and attention to presentation.
+        </p>
 
-    <p>
-      Every item is prepared using carefully selected ingredients and baked
-      with a focus on freshness, presentation, and consistency. We take
-      pride in delivering pastries that feel homemade while maintaining the
-      professionalism and reliability expected from a catering partner. Our
-      aim is simple: to provide food that looks beautiful, tastes
-      exceptional, and leaves a lasting impression on your guests.
-    </p>
+        <h2>Our Catering Offerings</h2>
 
-    <h2>Why Choose SunBaked Pastries?</h2>
+        <h3>Savoury Favourites</h3>
+        <ul>
+          <li>Signature Savoury Meat Pies</li>
+          <li>SunBaked Rolls</li>
+          <li>Sandwich Platters</li>
+        </ul>
 
-    <p>
-      Over time, several of our products have become customer favourites,
-      particularly our savoury meat pies and blueberry crumble muffins,
-      which continue to receive outstanding feedback from clients and event
-      guests alike. Beyond the quality of our food, we place a strong
-      emphasis on communication, dependable production timelines, and
-      professional presentation. Whether your event is a wedding,
-      workplace function, birthday celebration, church gathering, or
-      community event, you can trust us to deliver a catering experience
-      that is organized, stress-free, and tailored to your needs.
-    </p>
+        <h3>Sweet Selections</h3>
+        <ul>
+          <li>Blueberry Crumble Muffins</li>
+          <li>Lemon Crumble Muffins</li>
+          <li>Gourmet Cookies</li>
+          <li>Cheesecakes</li>
+          <li>Honey-Glazed Cornbread</li>
+          <li>Dessert Boxes</li>
+        </ul>
 
-    <h2>Our Catering Menu</h2>
+        <p>
+          All catering packages can be customized to suit your event,
+          including guest count, menu selections, flavours, and dietary
+          considerations.
+        </p>
 
-    <p>
-      Our savoury offerings are crafted to provide comfort and satisfaction
-      for guests of all ages. Signature selections include our classic
-      savoury meat pies—our best-selling item—as well as mini meat pies that
-      are perfect for children or bite-sized service. We also offer the
-      SunBaked Roll, featuring a grilled sausage wrapped in soft, fluffy
-      dough and paired with a homemade dipping sauce that has quickly become
-      a favourite among customers.
-    </p>
+        <h2>Perfect For</h2>
+        <ul>
+          <li>Corporate Meetings & Office Events</li>
+          <li>Open Houses & Client Appreciation Events</li>
+          <li>Weddings & Bridal Showers</li>
+          <li>Church & Community Gatherings</li>
+          <li>Birthdays & Family Celebrations</li>
+          <li>Vendor & Event Planner Partnerships</li>
+        </ul>
 
-    <p>
-      For those with a sweet tooth, our dessert selection offers a variety
-      of crowd-pleasing options. Guests can enjoy our blueberry crumble
-      muffins, known for their buttery crumble topping and rich flavour,
-      along with our chocolate-filled cookies available in multiple
-      variations. Our cheesecakes can be customized with different flavours
-      to suit your event, while our honey-glazed cornbread provides a unique
-      balance of sweetness and comfort that complements any gathering.
-    </p>
+        <h2>Why Choose SunBaked Pastries?</h2>
+        <ul>
+          <li>Fresh, homemade sweet and savoury offerings</li>
+          <li>Flexible catering packages for events of all sizes</li>
+          <li>Reliable service and clear communication</li>
+          <li>Professional presentation</li>
+          <li>Customized menus tailored to your needs</li>
+        </ul>
 
-    <p>
-      We understand that no two events are the same. As a result, our menus
-      can be customized to reflect your guest count, event theme, dietary
-      considerations, and personal preferences. Our team is always happy to
-      discuss options and create a catering package that best suits your
-      vision.
-    </p>
+        <h2>Vendor & Business Partnerships</h2>
 
-    <h2>Vendor & Event Partnerships</h2>
+        <p>
+          We proudly partner with businesses, realtors, event planners,
+          churches, and community organizations throughout the Lower
+          Mainland. Whether you're looking for catering for a one-time event
+          or an ongoing partnership, we're happy to create a customized
+          solution that fits your needs.
+        </p>
 
-    <p>
-      In addition to serving individual clients, SunBaked Pastries welcomes
-      opportunities to collaborate with event planners, venues,
-      organizations, and other industry professionals. We offer customized
-      menu solutions, guest-count-based pricing structures, and competitive
-      rates for larger orders. Our partnership approach is built on
-      professionalism, consistency, and a shared commitment to creating
-      exceptional experiences for clients and guests alike.
-    </p>
+        <h2>Let's Bake Something Special Together!</h2>
 
-    <p>
-      We are proud to support fellow vendors and event professionals by
-      providing dependable catering services that enhance the overall event
-      experience. Whether you require a one-time catering partner or are
-      interested in establishing an ongoing professional relationship, we
-      would be delighted to explore how we can work together.
-    </p>
+        <p>
+          Planning an event? We'd love to hear about it.
+        </p>
 
-    <h2>Let's Bake Something Special Together</h2>
+        <p>
+          Contact us by phone or email to discuss your event, explore menu
+          options, and receive a customized catering proposal. We look
+          forward to helping make your gathering one to remember.
+        </p>
 
-    <p>
-      If you're planning an upcoming event and are looking for catering that
-      feels personal, thoughtful, and professionally executed, SunBaked
-      Pastries would be honoured to be part of your celebration. We invite
-      you to reach out to discuss your event, explore menu options, and
-      discover how we can help make your gathering truly memorable.
-    </p>
-  </div>
-</section>
+        <div className="catering-images">
+          <img
+            src={c1}
+            alt="SunBaked Pastries Catering Display"
+            className="catering-image"
+          />
 
-);
+          <img
+            src={c2}
+            alt="SunBaked Pastries Event Catering"
+            className="catering-image"
+          />
+        </div>
+      </div>
+    </section>
+  );
 }
