@@ -20,7 +20,7 @@ export default function Checkout({ cart }) {
   const deliveryFee = method === "delivery" ? 5 : 0;
 
   const minDate = new Date();
-  minDate.setDate(minDate.getDate() + 4);
+  minDate.setDate(minDate.getDate() + 3);
   const minDateString = minDate.toISOString().split("T")[0];
 
   const tipAmountRaw =
@@ -157,7 +157,7 @@ export default function Checkout({ cart }) {
         <h2>Pickup/Delivery Date</h2>
 
         <p style={{ fontSize: "0.95rem", marginBottom: "10px", color: "#666" }}>
-          All orders require a minimum of <strong>4 days</strong> notice. The earliest date is{" "}
+          All orders require a minimum of <strong>3 days</strong> notice. The earliest date is{" "}
           <strong>{minDateString}</strong>.
         </p>
 

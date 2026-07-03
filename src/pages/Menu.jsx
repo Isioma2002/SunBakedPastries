@@ -5,11 +5,13 @@ import cinnamonRolls from "../assets/MENU_cinammon rolls.jpg";
 import cookies from "../assets/MENU_cookies.jpg";
 import meatPie from "../assets/MENU_meat pie.jpg";
 import cs from "../assets/cs.jpg";
+
 const productsData = [
   {
     id: 1,
-    name: "Blueberry Muffins",
-    description: "Classic blueberry muffins, with a crusted lemon crumble.",
+    name: "Blueberry Crumble Muffins",
+    description:
+      "Classic Blueberry Muffin with a crusted crumble.",
     image: blueberryMuffin,
     tiers: [
       { qty: 6, price: 12 },
@@ -20,6 +22,19 @@ const productsData = [
   },
   {
     id: 2,
+    name: "Lemon Crumble Muffins",
+    description:
+      "A soft Lemon muffin topped with a crusted lemon crumble.",
+    image: cs,
+    tiers: [
+      { qty: 6, price: 12 },
+      { qty: 12, price: 24 },
+      { qty: 24, price: 45 },
+      { qty: 48, price: 90 },
+    ],
+  },
+  {
+    id: 3,
     name: "Espresso Chocolate Muffins",
     description: "Rich espresso-infused chocolate muffins.",
     image: cs,
@@ -31,7 +46,7 @@ const productsData = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: "Cinnamon Rolls",
     description:
       "A sweet pastry filled with cinnamon and brown sugar, finished with a drizzle of icing.",
@@ -44,7 +59,7 @@ const productsData = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "Mini Cheesecake",
     description:
       "Mini cheesecakes with a rich creamy filling on a buttery crust.",
@@ -57,19 +72,24 @@ const productsData = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     name: "Savory Meat Pies",
-    description: "Golden pastry filled with seasoned ground beef and veggies.",
+    description:
+      "Golden pastry filled with seasoned ground beef and veggies.",
     image: meatPie,
     tiers: [
-      { qty: 6, price: 12 },
-      { qty: 12, price: 24 },
-      { qty: 24, price: 45 },
-      { qty: 48, price: 90 },
+      { qty: 5, price: 17.5 },
+      { qty: 10, price: 30 },
+      { qty: 15, price: 37.5 },
+      { qty: 20, price: 46 },
+      { qty: 25, price: 55.5 },
+      { qty: 30, price: 66 },
+      { qty: 35, price: 76.5 },
+      { qty: 40, price: 87 },
     ],
   },
   {
-    id: 6,
+    id: 7,
     name: "Buttermilk Cornbread",
     description:
       "Sweet cornbread loaves with coconut flakes or honey butter.",
@@ -82,7 +102,7 @@ const productsData = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     name: "Classic Chocolate Cookies",
     description:
       "A timeless favorite, filled with milk or white chocolate.",
@@ -104,9 +124,6 @@ export default function Menu({ cart, setCart }) {
       return acc;
     }, {})
   );
-
-  // 🛒 Cart state
-  
 
   const handleChange = (product, tierIndex) => {
     setSelectedTier((prev) => ({
@@ -132,7 +149,6 @@ export default function Menu({ cart, setCart }) {
 
   return (
     <section className="home1">
-
       <div className="menu-grid">
         {productsData.map((product) => {
           const tier = selectedTier[product.id];
@@ -153,7 +169,9 @@ export default function Menu({ cart, setCart }) {
 
                 <select
                   value={product.tiers.indexOf(tier)}
-                  onChange={(e) => handleChange(product, Number(e.target.value))}
+                  onChange={(e) =>
+                    handleChange(product, Number(e.target.value))
+                  }
                 >
                   {product.tiers.map((t, index) => (
                     <option key={index} value={index}>
@@ -163,7 +181,6 @@ export default function Menu({ cart, setCart }) {
                 </select>
               </div>
 
-              {/* ✅ ADD TO CART BUTTON */}
               <div className="menu-button">
                 <button onClick={() => addToCart(product)}>
                   Add to Cart
